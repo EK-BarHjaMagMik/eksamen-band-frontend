@@ -51,12 +51,6 @@
     padding: 0;
 }
 
-/* Remove default link styles */
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
 /* Remove default list styles */
 ul,
 ol {
