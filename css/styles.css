@@ -102,14 +102,39 @@ img {
     flex-direction: row;
     gap: 1rem;
     margin-left: auto;
+}
 
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .site-nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: black;
+        padding: 1rem 2rem;
+        gap: 1rem;
+    }
+
+    .site-nav.open {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        color: white;
+        font-size: 1.5rem;
+    }
 }
 .site-nav a {
     color: white;
     font: bold 0.7rem "Roboto", sans-serif;
     text-decoration: none;
-
-
 }
 
 .logo a {
@@ -124,6 +149,39 @@ img {
 }
 
 /* === FOOTER === */
+
+.site-footer {
+    background-color: black;
+    color: white;
+    padding: 1rem 2rem;
+
+}
+
+.footer-socials {
+    margin-bottom: 1.5rem;
+}
+
+.footer-socials a {
+    color: white;
+    font: bold 1.5rem "Roboto", sans-serif;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.footer-container {
+text-align: center;
+}
+
+.footer-email {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+}
+
+.footer-socials {
+    margin-bottom: 1.5rem;
+}
 
 html {
     font-size: var(--font-size-base);
