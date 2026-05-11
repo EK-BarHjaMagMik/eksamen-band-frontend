@@ -1,0 +1,5 @@
+import {fetchJson} from "../api.js";
+
+export function getUpcomingShows() {
+  return fetchJson('/api/shows/upcoming');
+}
