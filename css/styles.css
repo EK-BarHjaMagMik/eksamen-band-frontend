@@ -1,3 +1,79 @@
+/* ---------------------------------------
+    THEME TOKENS
+---------------------------------------- */
+
+:root {
+    /* Colors */
+    --color-bg-page: oklch(0.145 0 0);
+    --color-bg-surface: oklch(0.20 0 0);
+    --color-bg-overlay: rgba(0, 0, 0, 0.6);
+
+    --color-text-primary: oklch(0.985 0 0);
+    --color-text-secondary: oklch(0.708 0 0);
+    --color-text-muted: oklch(0.55 0 0);
+
+    --color-accent: oklch(0.985 0 0);
+    --color-accent-foreground: oklch(0.205 0 0);
+
+    --color-border: oklch(0.269 0 0);
+    --color-input-bg: oklch(0.269 0 0);
+    --color-input-border: oklch(0.269 0 0);
+
+    /* Typography */
+    --font-size-base: 16px;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+
+    /* Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 4rem;
+
+}
+
+
+/* ---------------------------------------
+    RESET
+---------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Remove default button styles */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+/* Remove default image spacing */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ---------------------------------------
+    BASE STYLES
+---------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -32,3 +108,118 @@
 }
 
 /* === FOOTER === */
+
+html {
+    font-size: var(--font-size-base);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--color-bg-page);
+    color: var(--color-text-primary);
+    font-family: system-ui, sans-serif;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4 {
+    font-weight: var(--font-weight-medium);
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: var(--space-md);
+}
+
+/* Inputs */
+input,
+textarea {
+    font: inherit;
+    color: var(--color-text-primary);
+    background: var(--color-input-bg);
+    border: 1px solid var(--color-input-border);
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+}
+
+/* ---------------------------------------
+    HERO SECTION
+---------------------------------------- */
+
+/* Outer container */
+.hero {
+    background: var(--color-bg-page);
+}
+
+/* Wrapper controls layout */
+.hero-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+/* Desktop: full screen height */
+@media (min-width: 768px) {
+    .hero-wrapper {
+        height: 100vh;
+    }
+}
+
+/* Hero image */
+.hero-image {
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width: 768px) {
+    .hero-image {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+/* Gradient overlay */
+.hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            var(--color-bg-overlay),
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 1));
+}
+
+
+/* Logo overlay container */
+.hero-logo-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Logo image */
+.hero-logo {
+    width: 18rem;
+    filter: drop-shadow(0 0 60px rgba(255, 255, 255, 0.3));
+}
+
+@media (min-width: 768px) {
+    .hero-logo {
+        width: 500px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-logo {
+        width: 700px;
+    }
+}
