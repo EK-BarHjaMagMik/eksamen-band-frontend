@@ -7,7 +7,7 @@ export function renderFooter() {
     footer.innerHTML = `
     <div class="footer-container">
       <h2 class="footer-heading">Contact</h2>
-      <a href="mailto:stuggofficial@gmail.com" class="footer-email">booking@stugg.dk</a>
+      <a href="mailto:stuggofficial@gmail.com" class="footer-email">stuggofficial@gmail.com</a>
       <div class="footer-socials">
           <a href="https://www.facebook.com/STUGGofficial/" target="_blank" rel="noopener noreferrer">
             <i class="fa-brands fa-facebook-f"></i></a>
