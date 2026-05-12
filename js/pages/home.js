@@ -1,6 +1,6 @@
 import { renderHero } from '../components/hero.js';
-import { renderUpcomingShows } from '../components/upcomingShows.js';
-import {getUpcomingShows} from "../services/showService.js";
+import { renderUpcomingShows } from '../components/upcoming-shows.js';
+import {getUpcomingShows} from "../services/show-service.js";
 
 export async function render(container, params) {
     container.appendChild(renderHero());
