@@ -1,5 +1,5 @@
 import { getPhotos } from '../services/photo-service.js';
-import { renderPhotoGrid } from '../components/photoGrid.js';
+import { renderPhotoGrid } from '../components/photo-grid.js';
 
 export async function render(container, params) {
     const header = document.createElement('h1');
