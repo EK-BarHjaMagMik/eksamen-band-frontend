@@ -21,7 +21,6 @@
 
     /* Typography */
     --font-size-base: 16px;
-    --font-weight-light: 300;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
 
@@ -174,7 +173,7 @@ textarea {
 .site-nav a {
     color: var(--color-text-primary);
     font-size: 1.1rem;
-    font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-medium);
     letter-spacing: 0.05em;
     text-transform: uppercase;
     text-decoration: none;
@@ -195,7 +194,7 @@ textarea {
     width: 7rem;
     height: 4.5rem;
     margin-top: 1rem;
-    margin-left: 10rem;
+    margin-left: 15rem;
 }
 
 
