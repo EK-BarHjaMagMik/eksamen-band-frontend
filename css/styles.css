@@ -322,3 +322,76 @@ textarea {
         width: 700px;
     }
 }
+
+/* ---------------------------------------
+    UPCOMING SHOWS SECTION
+---------------------------------------- */
+
+.upcoming-shows {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md);
+}
+
+.upcoming-shows h2 {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-lg);
+}
+
+.shows-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.show-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+@media (min-width: 600px) {
+    .show-row {
+        grid-template-columns: 1fr 1fr 2fr auto;
+        align-items: center;
+    }
+}
+
+.show-date {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.show-city,
+.show-venue {
+    color: var(--color-text-primary);
+}
+
+.tickets-btn {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-md);
+    background: var(--color-accent);
+    color: var(--color-accent-foreground);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.tickets-btn:hover {
+    opacity: 0.85;
+}
+
+.no-tickets {
+    color: var(--color-text-muted);
+}
+
+.no-shows {
+    color: var(--color-text-secondary);
+    padding: var(--space-md) 0;
+}
