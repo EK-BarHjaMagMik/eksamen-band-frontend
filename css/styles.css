@@ -21,6 +21,7 @@
 
     /* Typography */
     --font-size-base: 16px;
+    --font-weight-light: 300;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
 
@@ -68,120 +69,13 @@ button {
 /* Remove default image spacing */
 img {
     display: block;
-    max-width: 100%;
+    max-width: 100%
 }
+
 
 /* ---------------------------------------
     BASE STYLES
 ---------------------------------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* === HEADER === */
-
-.site-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: black;
-    z-index: 1000;
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 4rem;
-}
-
-.site-nav {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    margin-left: auto;
-}
-
-.hamburger {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .site-nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: black;
-        padding: 1rem 2rem;
-        gap: 1rem;
-    }
-
-    .site-nav.open {
-        display: flex;
-    }
-
-    .hamburger {
-        display: block;
-        color: white;
-        font-size: 1.5rem;
-    }
-}
-.site-nav a {
-    color: white;
-    font: bold 0.7rem "Roboto", sans-serif;
-    text-decoration: none;
-}
-
-.logo a {
-    color: white;
-    text-decoration: none;
-}
-
-.logo img {
-    display: flex;
-    width: 3.5rem;
-    height: 3rem;
-}
-
-/* === FOOTER === */
-
-.site-footer {
-    background-color: black;
-    color: white;
-    padding: 1rem 2rem;
-
-}
-
-.footer-socials {
-    margin-bottom: 1.5rem;
-}
-
-.footer-socials a {
-    color: white;
-    font: bold 1.5rem "Roboto", sans-serif;
-    text-decoration: none;
-    padding: 5px;
-}
-
-.footer-container {
-text-align: center;
-}
-
-.footer-email {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 1.5rem;
-}
-
-.footer-socials {
-    margin-bottom: 1.5rem;
-}
 
 html {
     font-size: var(--font-size-base);
@@ -221,6 +115,137 @@ textarea {
     padding: var(--space-sm);
     border-radius: var(--radius-sm);
 }
+
+
+/* === HEADER === */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    padding: 0 var(--space-xl);
+}
+
+.site-nav {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-md);
+    margin-left: auto;
+}
+
+.hamburger {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .site-nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-bg-page);
+        padding: var(--space-md) var(--space-lg);
+        gap: var(--space-md);
+    }
+
+    .site-nav.open {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        color: var(--color-text-primary);
+        font-size: 1.5rem;
+    }
+}
+
+.site-nav a {
+    color: var(--color-text-primary);
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-light);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.site-nav a:hover {
+    color: var(--color-text-secondary);
+}
+
+.logo a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+.logo img {
+    display: block;
+    width: 7rem;
+    height: 4.5rem;
+    margin-top: 1rem;
+    margin-left: 10rem;
+}
+
+
+/* === FOOTER === */
+
+.site-footer {
+    background-color: var(--color-bg-page);
+    color: var(--color-text-primary);
+    padding: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-container {
+    text-align: center;
+}
+
+.footer-heading {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-md);
+}
+
+.footer-email {
+    display: block;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    margin-bottom: var(--space-lg);
+    transition: color 0.2s;
+}
+
+.footer-email:hover {
+    color: var(--color-text-secondary);
+}
+
+.footer-socials {
+    margin-bottom: var(--space-lg);
+}
+
+.footer-socials a {
+    color: var(--color-text-primary);
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding: var(--space-xs);
+    transition: color 0.2s;
+}
+
+.footer-socials a:hover {
+    color: var(--color-text-secondary);
+}
+
 
 /* ---------------------------------------
     HERO SECTION
