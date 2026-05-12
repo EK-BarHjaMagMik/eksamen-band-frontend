@@ -18,11 +18,18 @@
     --color-border: oklch(0.269 0 0);
     --color-input-bg: oklch(0.269 0 0);
     --color-input-border: oklch(0.269 0 0);
+    --color-bg-header: rgba(0, 0, 0, 0.9);
+
+    /* Transitions */
+    --transition-color: color 0.2s;
 
     /* Typography */
     --font-size-base: 16px;
+    --font-size-nav: 1.1rem;
+    --font-size-icon: 1.5rem;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
+    --letter-spacing-wide: 0.05em;
 
     /* Radius */
     --radius-sm: 4px;
@@ -122,7 +129,7 @@ textarea {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: var(--color-bg-header);
     backdrop-filter: blur(8px);
     z-index: 1000;
 }
@@ -137,7 +144,6 @@ textarea {
 
 .site-nav {
     display: flex;
-    flex-direction: row;
     gap: var(--space-md);
     margin-left: auto;
 }
@@ -166,18 +172,18 @@ textarea {
     .hamburger {
         display: block;
         color: var(--color-text-primary);
-        font-size: 1.5rem;
+        font-size: var(--font-size-icon);
     }
 }
 
 .site-nav a {
     color: var(--color-text-primary);
-    font-size: 1.1rem;
+    font-size: var(--font-size-nav);
     font-weight: var(--font-weight-medium);
-    letter-spacing: 0.05em;
+    letter-spacing: var(--letter-spacing-wide);
     text-transform: uppercase;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: var(--transition-color);
 }
 
 .site-nav a:hover {
@@ -190,11 +196,7 @@ textarea {
 }
 
 .logo img {
-    display: block;
     width: 7rem;
-    height: 4.5rem;
-    margin-top: 1rem;
-    margin-left: 15rem;
 }
 
 
@@ -213,7 +215,7 @@ textarea {
 
 .footer-heading {
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--letter-spacing-wide);
     margin-bottom: var(--space-md);
 }
 
@@ -222,7 +224,7 @@ textarea {
     color: var(--color-text-primary);
     text-decoration: none;
     margin-bottom: var(--space-lg);
-    transition: color 0.2s;
+    transition: var(--transition-color);
 }
 
 .footer-email:hover {
@@ -235,10 +237,10 @@ textarea {
 
 .footer-socials a {
     color: var(--color-text-primary);
-    font-size: 1.5rem;
+    font-size: var(--font-size-icon);
     text-decoration: none;
     padding: var(--space-xs);
-    transition: color 0.2s;
+    transition: var(--transition-color);
 }
 
 .footer-socials a:hover {
@@ -259,7 +261,6 @@ textarea {
 .hero-wrapper {
     position: relative;
     width: 100%;
-    height: auto;
 }
 
 /* Desktop: full screen height */
@@ -301,7 +302,7 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: var(--space-md);
 }
 
 /* Logo image */
