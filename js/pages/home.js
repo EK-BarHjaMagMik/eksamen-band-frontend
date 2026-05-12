@@ -5,7 +5,12 @@ import {getUpcomingShows} from "../services/showService.js";
 export async function render(container, params) {
     container.appendChild(renderHero());
 
-    const shows = await getUpcomingShows();
+    let shows = [];
+    try {
+        shows = await getUpcomingShows();
+    } catch (error) {
+        console.error('Failed to load upcoming shows:', error);
+    }
     container.appendChild(renderUpcomingShows(shows));
 }
 
