@@ -18,7 +18,7 @@ export function renderFooter() {
           <a href="https://open.spotify.com/artist/6faOKb101lzOAatluvBUNs" target="_blank" rel="noopener noreferrer">
             <i class="fa-brands fa-spotify"></i></a>
       </div>
-      <p>&copy; ${year}. All rights reserved.</p>
+      <p>&copy; ${year} STÜGG. All rights reserved.</p>
   </div>
     `;
     

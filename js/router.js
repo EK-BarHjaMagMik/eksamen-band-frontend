@@ -3,7 +3,8 @@ import { renderFooter } from "./components/footer.js";
 
 // Map URL hash paths to the page module that should be loaded for that route.
 const routes = {
-    '/': { module: './pages/home.js' }
+    '/': { module: './pages/home.js' },
+    '/photos': { module: './pages/photos.js' },
 };
 
 async function handleRoute() {

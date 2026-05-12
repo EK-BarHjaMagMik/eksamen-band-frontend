@@ -96,6 +96,10 @@ body {
     line-height: 1.5;
 }
 
+.site-content {
+    padding-top: 5rem; /* Account for fixed header */
+}
+
 /* Headings */
 h1,
 h2,
