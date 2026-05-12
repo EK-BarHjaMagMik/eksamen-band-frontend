@@ -5,10 +5,15 @@ export function renderPhotoGrid(photos) {
     grid.classList.add('photo-grid');
 
     photos.forEach(photo => {
-        const photoElement = document.createElement('img');
-        photoElement.src = `${BASE_URL}${photo.url}`;
-        photoElement.alt = photo.caption || 'gallery photo';
-        grid.appendChild(photoElement);
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('photo-grid-item');
+
+        const img = document.createElement('img');
+        img.src = `${BASE_URL}${photo.url}`;
+        img.alt = photo.caption || 'gallery photo';
+
+        wrapper.appendChild(img);
+        grid.appendChild(wrapper);
     });
 
     return grid;

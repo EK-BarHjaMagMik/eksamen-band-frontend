@@ -3,7 +3,7 @@ import { renderPhotoGrid } from '../components/photo-grid.js';
 
 export async function render(container, params) {
     const header = document.createElement('h1');
-    header.classList.add('section-header');
+    header.classList.add('page-title');
     header.textContent = 'Photos';
     container.appendChild(header);
 
