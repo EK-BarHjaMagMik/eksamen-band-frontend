@@ -229,20 +229,15 @@ textarea {
 }
 
 .footer-container {
-    text-align: center;
-}
-
-.footer-heading {
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wide);
-    margin-bottom: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
 }
 
 .footer-email {
-    display: block;
     color: var(--color-text-primary);
     text-decoration: none;
-    margin-bottom: var(--space-lg);
     transition: var(--transition-color);
 }
 
@@ -251,19 +246,13 @@ textarea {
 }
 
 .footer-socials {
-    margin-bottom: var(--space-lg);
+    display: flex;
+    gap: var(--space-md);
 }
 
-.footer-socials a {
-    color: var(--color-text-primary);
-    font-size: var(--font-size-icon);
-    text-decoration: none;
-    padding: var(--space-xs);
-    transition: var(--transition-color);
-}
-
-.footer-socials a:hover {
+.footer-copy {
     color: var(--color-text-secondary);
+    font-size: 0.9rem;
 }
 
 
@@ -433,6 +422,50 @@ textarea {
 .no-shows {
     color: var(--color-text-secondary);
     padding: var(--space-md) 0;
+}
+
+
+/* ---------------------------------------
+    CONTACT SECTION (home page)
+---------------------------------------- */
+
+.home-contact {
+    padding: var(--space-xl) var(--space-md);
+    text-align: center;
+}
+
+.contact-heading {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-lg);
+}
+
+.contact-subtitle {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+}
+
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: var(--transition-color), border-color 0.2s;
+}
+
+.social-btn:hover,
+.social-btn:focus-visible {
+    color: var(--color-text-secondary);
+    border-color: var(--color-text-secondary);
+    outline: 2px solid var(--color-text-secondary);
+    outline-offset: 2px;
 }
 
 /* ---------------------------------------

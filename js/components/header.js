@@ -31,6 +31,13 @@ export function renderHeader() {
         })
     });
 
+    const homeLinks = header.querySelectorAll('a[href="#/"]');
+    homeLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+
 
 
     return header;
