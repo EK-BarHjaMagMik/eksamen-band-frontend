@@ -11,14 +11,25 @@ export function renderPhotoGrid(photos) {
         const wrapper = document.createElement('div');
         wrapper.classList.add('photo-grid-item');
 
+        // Add skeleton
+        const skeleton = document.createElement('div');
+        skeleton.classList.add('photo-skeleton');
+        wrapper.appendChild(skeleton);
+
         // Load the thumbnail from the API base URL.
         const img = document.createElement('img');
         img.src = `${BASE_URL}${photo.url}`;
         // Use the photo caption if available, otherwise a generic fallback.
         img.alt = photo.caption || 'gallery photo';
 
+        // When image loads, hide skeleton
+        img.onload = () => {
+            skeleton.style.display = 'none';
+        };
+
         // Handle image load errors gracefully by showing a fallback UI instead of a broken image.
         img.onerror = () => {
+            skeleton.style.display = 'none';
             console.error("Image failed to load:", img.src);
 
             const fallback = document.createElement('div');
