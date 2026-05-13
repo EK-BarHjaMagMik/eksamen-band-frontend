@@ -217,47 +217,11 @@ textarea {
 
 .site-footer {
     background-color: var(--color-bg-page);
-    color: var(--color-text-primary);
+    color: var(--color-text-secondary);
     padding: var(--space-lg);
     border-top: 1px solid var(--color-border);
-}
-
-.footer-container {
     text-align: center;
-}
-
-.footer-heading {
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wide);
-    margin-bottom: var(--space-md);
-}
-
-.footer-email {
-    display: block;
-    color: var(--color-text-primary);
-    text-decoration: none;
-    margin-bottom: var(--space-lg);
-    transition: var(--transition-color);
-}
-
-.footer-email:hover {
-    color: var(--color-text-secondary);
-}
-
-.footer-socials {
-    margin-bottom: var(--space-lg);
-}
-
-.footer-socials a {
-    color: var(--color-text-primary);
-    font-size: var(--font-size-icon);
-    text-decoration: none;
-    padding: var(--space-xs);
-    transition: var(--transition-color);
-}
-
-.footer-socials a:hover {
-    color: var(--color-text-secondary);
+    font-size: 0.9rem;
 }
 
 
@@ -407,4 +371,63 @@ textarea {
 .no-shows {
     color: var(--color-text-secondary);
     padding: var(--space-md) 0;
+}
+
+
+/* ---------------------------------------
+    CONTACT SECTION (home page)
+---------------------------------------- */
+
+.home-contact {
+    padding: var(--space-xl) var(--space-md);
+    text-align: center;
+}
+
+.contact-heading {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-lg);
+}
+
+.contact-subtitle {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-lg);
+}
+
+.contact-email-link {
+    display: block;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xl);
+    transition: var(--transition-color);
+}
+
+.contact-email-link:hover {
+    color: var(--color-text-secondary);
+}
+
+.contact-socials {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: var(--transition-color), border-color 0.2s;
+}
+
+.social-btn:hover {
+    color: var(--color-text-secondary);
+    border-color: var(--color-text-secondary);
 }
