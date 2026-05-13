@@ -7,12 +7,11 @@ import { getContactInfo } from "../services/contact-service.js";
 export async function render(container, params) {
     container.appendChild(renderHero());
 
-    let shows = [];
-    try {
-        shows = await getUpcomingShows();
-    } catch (error) {
-        console.error('Failed to load upcoming shows:', error);
-    }
+    const [shows, contact] = await Promise.all([
+        getUpcomingShows().catch(err => { console.error('Failed to load upcoming shows:', err); return []; }),
+        getContactInfo().catch(err => { console.error('Failed to load contact info:', err); return null; })
+    ]);
+
     const showsSection = renderUpcomingShows(shows);
     showsSection.id = 'tour';
     container.appendChild(showsSection);
@@ -20,12 +19,6 @@ export async function render(container, params) {
     // TODO: EKS-XX news section (2×2 card grid with headline, image, date, excerpt)
     // TODO: EKS-XX photos section (3×2 grid + "view all photos" button)
 
-    let contact = null;
-    try {
-        contact = await getContactInfo();
-    } catch (error) {
-        console.error('Failed to load contact info:', error);
-    }
     const contactSection = renderContactInfo(contact);
     contactSection.id = 'contact';
     container.appendChild(contactSection);

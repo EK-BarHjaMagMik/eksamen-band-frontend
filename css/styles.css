@@ -217,10 +217,35 @@ textarea {
 
 .site-footer {
     background-color: var(--color-bg-page);
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
     padding: var(--space-lg);
     border-top: 1px solid var(--color-border);
-    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.footer-email {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: var(--transition-color);
+}
+
+.footer-email:hover {
+    color: var(--color-text-secondary);
+}
+
+.footer-socials {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.footer-copy {
+    color: var(--color-text-secondary);
     font-size: 0.9rem;
 }
 
@@ -395,24 +420,6 @@ textarea {
     margin-bottom: var(--space-lg);
 }
 
-.contact-email-link {
-    display: block;
-    color: var(--color-text-primary);
-    text-decoration: none;
-    font-size: 1.1rem;
-    margin-bottom: var(--space-xl);
-    transition: var(--transition-color);
-}
-
-.contact-email-link:hover {
-    color: var(--color-text-secondary);
-}
-
-.contact-socials {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-md);
-}
 
 .social-btn {
     display: flex;
@@ -427,7 +434,10 @@ textarea {
     transition: var(--transition-color), border-color 0.2s;
 }
 
-.social-btn:hover {
+.social-btn:hover,
+.social-btn:focus-visible {
     color: var(--color-text-secondary);
     border-color: var(--color-text-secondary);
+    outline: 2px solid var(--color-text-secondary);
+    outline-offset: 2px;
 }
