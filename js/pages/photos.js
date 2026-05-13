@@ -8,6 +8,11 @@ let currentFilter = null;     // last used showId
 // Create the lightbox once when the module loads
 createLightbox();
 
+// Register once at module scope — not inside render() — to avoid accumulating listeners.
+document.addEventListener('open-lightbox', e => {
+    openLightbox(e.detail.photos, e.detail.index);
+});
+
 export async function render(container, params) {
 
     const showId = params?.get('showId') || null;
@@ -29,7 +34,7 @@ export async function render(container, params) {
     try {
         if (shouldFetch) {
             const photos = await getPhotos(showId);
-            photoState = photos;
+            photoState = Array.isArray(photos) ? photos : [];
             currentFilter = showId;
         }
 
@@ -42,11 +47,6 @@ export async function render(container, params) {
         container.appendChild(header);
 
         container.appendChild(renderPhotoGrid(photoState));
-
-        // Wire up lightbox open events
-        document.addEventListener('open-lightbox', e => {
-            openLightbox(e.detail.photos, e.detail.index);
-        });
 
     } catch (err) {
         // Keep the loading placeholder in place and turn it into an error message.

@@ -443,9 +443,21 @@ textarea {
 
 .contact-subtitle {
     color: var(--color-text-secondary);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
 }
 
+.contact-email-link {
+    display: block;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xl);
+    transition: var(--transition-color);
+}
+
+.contact-email-link:hover {
+    color: var(--color-text-secondary);
+}
 
 .social-btn {
     display: flex;

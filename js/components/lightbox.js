@@ -11,7 +11,7 @@ export function createLightbox() {
     overlay.innerHTML = `
         <div class="lightbox-content">
             
-            <img class="lightbox-image" />
+            <img class="lightbox-image" alt="" />
             <div class="lightbox-fallback-overlay">
                 <svg viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2"
@@ -102,9 +102,7 @@ function showImage(index) {
     img.classList.remove('loaded');
 
     const photo = photos[index];
-    const src = `${BASE_URL}${photo.url}`;
-
-    img.src = src;
+    img.src = `${BASE_URL}${photo.url}`;
     img.alt = photo.caption || 'gallery photo';
 
     img.onerror = () => {
@@ -129,8 +127,7 @@ function showImage(index) {
 // Enable keyboard shortcuts for lightbox navigation when it is open.
 document.addEventListener('keydown', e => {
     const overlay = document.querySelector('.lightbox-overlay');
-    // Only handle keys if the lightbox is visible.
-    if (!overlay.classList.contains('active')) return;
+    if (!overlay || !overlay.classList.contains('active')) return;
 
     // Arrow keys navigate, Escape closes.
     if (e.key === 'ArrowRight') showImage(currentIndex + 1);
