@@ -10,13 +10,7 @@ export function createLightbox() {
     // Build the overlay once and reuse it for all photo selections.
     overlay.innerHTML = `
         <div class="lightbox-content">
-            <button class="lightbox-close" aria-label="Close">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
-            </button>
+            
             <img class="lightbox-image" />
             <div class="lightbox-fallback-overlay">
                 <svg viewBox="0 0 24 24" fill="none"
@@ -26,6 +20,13 @@ export function createLightbox() {
                     <line x1="3" y1="3" x2="21" y2="21"/>
                 </svg>
             </div>
+            <button class="lightbox-close" aria-label="Close">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
             <button class="lightbox-prev">‹</button>
             <button class="lightbox-next">›</button>
         </div>
@@ -100,7 +101,7 @@ function showImage(index) {
     img.classList.remove('loaded');
 
     const photo = photos[index];
-    const src = `${BASE_URL}${photo.url}BROKEN`;
+    const src = `${BASE_URL}${photo.url}`;
 
     img.src = src;
     img.alt = photo.caption || 'gallery photo';
