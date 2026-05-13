@@ -48,3 +48,5 @@ export async function render(container, params) {
         console.error(err);
     }
 }
+
+export default { render };
