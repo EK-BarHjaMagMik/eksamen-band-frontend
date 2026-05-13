@@ -505,3 +505,97 @@ textarea {
 .photo-grid-item:hover::after {
     background: rgba(0, 0, 0, 0.3);
 }
+
+/* ---------------------------------------
+   LIGHTBOX
+---------------------------------------- */
+
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none; /* hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: var(--space-md);
+}
+
+.lightbox-overlay.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.lightbox-image {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    object-fit: contain;
+    box-shadow: 0 0 40px rgba(255,255,255,0.2);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.lightbox-image.loaded {
+    opacity: 1;
+}
+
+/* Close button */
+.lightbox-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%); /* centers the circle on the corner */
+
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+
+    color: var(--color-text-primary);
+    font-size: 1.25rem;
+
+    box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    transition: background 0.2s ease, transform 0.2s ease;
+    border: 2px solid var(--color-accent);
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translate(50%, -50%) scale(1.1);
+}
+
+/* Arrows */
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0 1rem;
+}
+
+.lightbox-prev { left: -3rem; }
+.lightbox-next { right: -3rem; }
+
+@media (max-width: 768px) {
+    .lightbox-prev,
+    .lightbox-next {
+        display: none; /* swipe handles mobile */
+    }
+}

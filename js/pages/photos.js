@@ -1,8 +1,12 @@
 import { getPhotos } from '../services/photo-service.js';
 import { renderPhotoGrid } from '../components/photo-grid.js';
+import { createLightbox, openLightbox } from '../components/lightbox.js';
 
-let photoState = null;
-let currentFilter = null;
+let photoState = null;        // cached photos
+let currentFilter = null;     // last used showId
+
+// Create the lightbox once when the module loads
+createLightbox();
 
 export async function render(container, params) {
 
@@ -38,6 +42,11 @@ export async function render(container, params) {
         container.appendChild(header);
 
         container.appendChild(renderPhotoGrid(photoState));
+
+        // Wire up lightbox open events
+        document.addEventListener('open-lightbox', e => {
+            openLightbox(e.detail.photos, e.detail.index);
+        });
 
     } catch (err) {
         // Keep the loading placeholder in place and turn it into an error message.
