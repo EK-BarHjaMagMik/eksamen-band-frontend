@@ -27,8 +27,9 @@ export function createLightbox() {
                     <line x1="6" y1="6" x2="18" y2="18"/>
                 </svg>
             </button>
-            <button class="lightbox-prev">‹</button>
-            <button class="lightbox-next">›</button>
+
+             <button class="lightbox-prev" aria-label="Previous photo" title="Previous photo">‹</button>
+             <button class="lightbox-next" aria-label="Next photo" title="Next photo">›</button>
         </div>
     `;
 
