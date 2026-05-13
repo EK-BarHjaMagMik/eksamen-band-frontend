@@ -18,6 +18,14 @@ export function createLightbox() {
                 </svg>
             </button>
             <img class="lightbox-image" />
+            <div class="lightbox-fallback-overlay">
+                <svg viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <line x1="3" y1="3" x2="21" y2="21"/>
+                </svg>
+            </div>
             <button class="lightbox-prev">‹</button>
             <button class="lightbox-next">›</button>
         </div>
@@ -78,42 +86,43 @@ function closeLightbox() {
 }
 
 function showImage(index) {
-    // Wrap around so previous/next navigation loops continuously.
     if (index < 0) index = photos.length - 1;
     if (index >= photos.length) index = 0;
 
     currentIndex = index;
 
     const img = document.querySelector('.lightbox-image');
-    // Remove the loaded class before swapping the source so the fade-in can replay.
+    const fallbackOverlay = document.querySelector('.lightbox-fallback-overlay');
+
+    // Reset fallback state
+    fallbackOverlay.style.display = "none";
+    img.style.opacity = "1";
     img.classList.remove('loaded');
 
-    // Get the photo object at the requested index and construct the full image URL.
     const photo = photos[index];
-    const src = `${BASE_URL}${photo.url}`;
+    const src = `${BASE_URL}${photo.url}BROKEN`;
 
     img.src = src;
     img.alt = photo.caption || 'gallery photo';
 
-    // Handle image load errors gracefully by showing a fallback UI instead of a broken image.
     img.onerror = () => {
         console.error("Lightbox image failed:", img.src);
 
         img.classList.remove('loaded');
-        img.src = ''; // prevent broken icon
-        img.alt = "Image unavailable";
+        img.style.opacity = "0"; // hide broken image
+        fallbackOverlay.style.display = "flex";
     };
 
-    // Mark the image as loaded once the browser finishes fetching the new source.
     img.onload = () => img.classList.add('loaded');
 
-    // Preload the next and previous images in the background for smoother navigation.
+    // Preload next/prev
     const nextIndex = (currentIndex + 1) % photos.length;
     const prevIndex = (currentIndex - 1 + photos.length) % photos.length;
 
     new Image().src = `${BASE_URL}${photos[nextIndex].url}`;
     new Image().src = `${BASE_URL}${photos[prevIndex].url}`;
 }
+
 
 // Enable keyboard shortcuts for lightbox navigation when it is open.
 document.addEventListener('keydown', e => {

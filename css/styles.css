@@ -546,6 +546,8 @@ textarea {
     position: relative;
     max-width: 90vw;
     max-height: 90vh;
+    min-width: 10rem;
+    min-height: 10rem;
 }
 
 .lightbox-image {
@@ -591,6 +593,26 @@ textarea {
 .lightbox-close:hover {
     background: rgba(255, 255, 255, 0.15);
     transform: translate(50%, -50%) scale(1.1);
+}
+
+.lightbox-fallback-overlay {
+    position: absolute;
+    inset: 0;
+    display: none; /* hidden by default */
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    border-radius: var(--radius-md);
+
+    color: var(--color-text-muted);
+}
+
+.lightbox-fallback-overlay svg {
+    width: 3rem;
+    height: 3rem;
+    opacity: 0.6;
 }
 
 /* Arrows */
