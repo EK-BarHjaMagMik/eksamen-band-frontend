@@ -17,7 +17,7 @@ export function createLightbox() {
                     stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="3" width="18" height="18" rx="2"/>
-                    <line x1="3" y1="3" x2="21" y2="21"/>
+                    <line x1="4" y1="4" x2="20" y2="20"/>
                 </svg>
             </div>
             <button class="lightbox-close" aria-label="Close">

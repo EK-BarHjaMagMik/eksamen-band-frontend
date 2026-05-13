@@ -515,11 +515,12 @@ textarea {
     color: var(--color-text-muted);
     font-size: 2rem;
     border: 2px solid rgba(255, 255, 255, 0.2);
+    height: 100%;
 }
 
 .photo-fallback svg {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 50%;
+    height: 50%;
     opacity: 0.6;
 }
 
