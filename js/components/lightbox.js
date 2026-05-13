@@ -93,6 +93,16 @@ function showImage(index) {
     const src = `${BASE_URL}${photo.url}`;
 
     img.src = src;
+    img.alt = photo.caption || 'gallery photo';
+
+    // Handle image load errors gracefully by showing a fallback UI instead of a broken image.
+    img.onerror = () => {
+        console.error("Lightbox image failed:", img.src);
+
+        img.classList.remove('loaded');
+        img.src = ''; // prevent broken icon
+        img.alt = "Image unavailable";
+    };
 
     // Mark the image as loaded once the browser finishes fetching the new source.
     img.onload = () => img.classList.add('loaded');

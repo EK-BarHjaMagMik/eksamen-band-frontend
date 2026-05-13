@@ -506,8 +506,25 @@ textarea {
     background: rgba(0, 0, 0, 0.3);
 }
 
+.photo-fallback {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    font-size: 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.photo-fallback svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    opacity: 0.6;
+}
+
 /* ---------------------------------------
-   LIGHTBOX
+    LIGHTBOX
 ---------------------------------------- */
 
 .lightbox-overlay {
