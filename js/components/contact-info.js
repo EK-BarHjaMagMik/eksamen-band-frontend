@@ -3,7 +3,7 @@ export function renderContactInfo(contact) {
     section.className = 'home-contact';
 
     const heading = document.createElement('h2');
-    heading.className = 'contact-heading';
+    heading.className = 'section-heading';
     heading.textContent = 'Contact';
     section.appendChild(heading);
 

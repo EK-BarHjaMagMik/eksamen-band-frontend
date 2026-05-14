@@ -11,7 +11,6 @@ const routes = {
 const anchorRoutes = {
     '/tour': 'tour',
     '/contact': 'contact',
-    '/photos': 'photos'
 };
 
 async function renderPage(path, params) {

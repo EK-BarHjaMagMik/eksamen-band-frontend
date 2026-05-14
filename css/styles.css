@@ -361,8 +361,12 @@ textarea {
     padding: var(--space-xl) var(--space-md);
 }
 
-.upcoming-shows h2 {
-    font-size: 1.75rem;
+.section-heading {
+    font-size: 3rem;
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: center;
     margin-bottom: var(--space-lg);
 }
 
@@ -436,13 +440,6 @@ textarea {
     text-align: center;
 }
 
-.contact-heading {
-    font-size: 3rem;
-    font-weight: var(--font-weight-medium);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: var(--space-lg);
-}
 
 
 .contact-columns {
@@ -544,8 +541,31 @@ textarea {
     gap: var(--space-md);
     padding: var(--space-lg) var(--space-md);
     max-width: 80rem;
-    /* ~max-w-7xl */
     margin: 0 auto;
+}
+
+.view-all-btn {
+    display: block;
+    width: fit-content;
+    margin: var(--space-lg) auto 0;
+    padding: 0.75rem 2rem;
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    font-weight: var(--font-weight-medium);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.view-all-btn:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-page);
+}
+
+/* Only the standalone photos page needs full viewport height */
+.photo-grid.photos-page {
     min-height: 100vh;
 }
 
