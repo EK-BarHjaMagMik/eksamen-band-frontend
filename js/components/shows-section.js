@@ -19,10 +19,8 @@ export function renderShowsSection(upcomingShows, pastShows) {
     toggleBtn.textContent = 'See Past Shows';
 
     const upcomingSection = renderUpcomingShows(upcomingShows);
-    upcomingSection.id = 'tour';
 
     const pastShowsSection = renderPastShows(pastShows);
-    pastShowsSection.id = 'past-shows';
     pastShowsSection.classList.add('hidden');
 
     toggleBtn.addEventListener('click', () => {
