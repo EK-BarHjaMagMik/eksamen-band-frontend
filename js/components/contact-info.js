@@ -18,5 +18,13 @@ export function renderContactInfo(contact) {
         section.appendChild(subtitle);
     }
 
+    if (contact.email) {
+        const emailLink = document.createElement('a');
+        emailLink.className = 'contact-email-link';
+        emailLink.href = `mailto:${contact.email}`;
+        emailLink.textContent = contact.email;
+        section.appendChild(emailLink);
+    }
+
     return section;
 }
