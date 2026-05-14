@@ -359,8 +359,8 @@ textarea {
     max-width: 900px;
     margin: 0 auto;
     display: flex;
-    justify-content: right;
-    padding: var(--space-md) var(--space-md) 0 var(--space-md);
+    justify-content: center;
+    padding: var(--space-md);
 }
 
 
@@ -376,10 +376,10 @@ textarea {
 }
 
 /* ---------------------------------------
-    UPCOMING SHOWS SECTION
+    SHOWS SECTION
 ---------------------------------------- */
 
-.upcoming-shows {
+.shows-section {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 var(--space-md) var(--space-md) var(--space-md);
@@ -458,50 +458,6 @@ textarea {
 
 .hidden {display: none;}
 
-.past-shows {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: var(--space-md);
-}
-
-.past-shows h2 {
-    font-size: 1.75rem;
-    margin-bottom: var(--space-lg);
-}
-
-.past-shows-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-}
-
-.past-show-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-sm);
-    padding: var(--space-md);
-    background: var(--color-bg-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-}
-
-@media (min-width: 600px) {
-    .past-show-row {
-        grid-template-columns: 1fr 1fr 2fr 120px;
-        align-items: center;
-    }
-}
-
-.past-show-date {
-    color: var(--color-text-secondary);
-    font-size: 0.9rem;
-}
-
-.past-show-city,
-.past-show-venue {
-    color: var(--color-text-primary);
-}
-
 .photos-btn {
     display: inline-block;
     padding: var(--space-xs) var(--space-md);
@@ -520,11 +476,6 @@ textarea {
 
 .no-photos {
     color: var(--color-text-muted);
-}
-
-.no-past-shows {
-    color: var(--color-text-secondary);
-    padding: var(--space-md) 0;
 }
 
 /* ---------------------------------------
