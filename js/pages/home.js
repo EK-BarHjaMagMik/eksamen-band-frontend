@@ -1,19 +1,30 @@
 import { renderHero } from '../components/hero.js';
-import { getUpcomingShows } from '../services/show-service.js';
 import { renderUpcomingShows } from '../components/upcoming-shows.js';
 import { getPastShows} from '../services/show-service.js';
 import { renderPastShows} from '../components/past-shows.js';
-import { getContactInfo } from '../services/contact-service.js';
 import { renderContactInfo } from '../components/contact-info.js';
+import { getUpcomingShows } from "../services/show-service.js";
+import { getContactInfo } from "../services/contact-service.js";
+import { getRecentPhotos } from "../services/photo-service.js";
+import { renderPhotoSection } from '../components/photos.js';
+import { createLightbox, openLightbox } from '../components/lightbox.js';
+
+// Create the lightbox once when the module loads
+createLightbox();
+
+// Register once at module scope — not inside render() — to avoid accumulating listeners.
+document.addEventListener('open-lightbox', e => {
+    openLightbox(e.detail.photos, e.detail.index);
+});
 
 export async function render(container, params) {
     container.appendChild(renderHero());
 
-    const [shows, pastShows, contact] = await Promise.all([
+    const [shows, pastShows, contact, photos] = await Promise.all([
         getUpcomingShows().catch(err => { console.error('Failed to load upcoming shows:', err); return []; }),
         getPastShows().catch(err => { console.error('Failed to load past shows:', err); return []; }),
-        getContactInfo().catch(err => { console.error('Failed to load contact info:', err); return null; })
-
+        getContactInfo().catch(err => { console.error('Failed to load contact info:', err); return null; }),
+        getRecentPhotos().catch(err => { console.error('Failed to load photos:', err); return []; })
     ]);
 
     //  suspecting we might need to appendchild/structure differently
@@ -49,7 +60,11 @@ export async function render(container, params) {
 
 
     // TODO: EKS-XX news section (2×2 card grid with headline, image, date, excerpt)
-    // TODO: EKS-XX photos section (3×2 grid + "view all photos" button)
+    const photoSection = renderPhotoSection(photos);
+    if (photoSection) {
+        photoSection.id = 'photos';
+        container.appendChild(photoSection);
+    }
 
     const contactSection = renderContactInfo(contact);
     contactSection.id = 'contact';

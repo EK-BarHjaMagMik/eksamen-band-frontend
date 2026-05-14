@@ -22,6 +22,7 @@ export function renderPhotoGrid(photos) {
         img.src = `${BASE_URL}${photo.url}`;
         // Use the photo caption if available, otherwise a generic fallback.
         img.alt = photo.caption || 'gallery photo';
+        img.loading = 'lazy'; // Hint to browser to lazy-load offscreen images
 
         // When image loads, hide skeleton
         img.onload = () => {

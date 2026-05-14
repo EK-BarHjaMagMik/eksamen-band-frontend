@@ -385,8 +385,12 @@ textarea {
     padding: 0 var(--space-md) var(--space-md) var(--space-md);
 }
 
-.upcoming-shows h2 {
-    font-size: 1.75rem;
+.section-heading {
+    font-size: 3rem;
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: center;
     margin-bottom: var(--space-lg);
 }
 
@@ -528,32 +532,59 @@ textarea {
 ---------------------------------------- */
 
 .home-contact {
+    max-width: 900px;
+    margin: 0 auto;
     padding: var(--space-xl) var(--space-md);
     text-align: center;
 }
 
-.contact-heading {
-    font-size: 3rem;
+
+
+.contact-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    max-width: 680px;
+    margin: 0 auto var(--space-xl);
+}
+
+@media (max-width: 520px) {
+    .contact-columns {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+}
+
+.contact-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-col-label {
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-normal);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: var(--space-lg);
-}
-
-.contact-subtitle {
+    letter-spacing: 0.18em;
     color: var(--color-text-secondary);
-    margin-bottom: var(--space-md);
+    margin-bottom: 0.25rem;
 }
 
-.contact-email-link {
-    display: block;
+.contact-col-desc {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.contact-col-email {
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-medium);
     color: var(--color-text-primary);
     text-decoration: none;
-    font-size: 1.1rem;
-    margin-bottom: var(--space-xl);
     transition: var(--transition-color);
 }
 
-.contact-email-link:hover {
+.contact-col-email:hover {
     color: var(--color-text-secondary);
 }
 
@@ -579,6 +610,26 @@ textarea {
 }
 
 /* ---------------------------------------
+    ABOUT PAGE
+---------------------------------------- */
+
+.band-bio {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-md) var(--space-xl);
+}
+
+.band-bio p {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+}
+
+.band-bio p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------------------------------------
     PHOTO GRID
 ---------------------------------------- */
 
@@ -588,8 +639,31 @@ textarea {
     gap: var(--space-md);
     padding: var(--space-lg) var(--space-md);
     max-width: 80rem;
-    /* ~max-w-7xl */
     margin: 0 auto;
+}
+
+.view-all-btn {
+    display: block;
+    width: fit-content;
+    margin: var(--space-lg) auto 0;
+    padding: 0.75rem 2rem;
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    font-weight: var(--font-weight-medium);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.view-all-btn:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-page);
+}
+
+/* Only the standalone photos page needs full viewport height */
+.photo-grid.photos-page {
     min-height: 100vh;
 }
 

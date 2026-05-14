@@ -5,6 +5,7 @@ export function renderUpcomingShows(shows) {
     section.className = 'upcoming-shows';
 
     const heading = document.createElement('h2');
+    heading.className = 'section-heading';
     heading.textContent = 'Upcoming Shows';
     section.appendChild(heading);
 
