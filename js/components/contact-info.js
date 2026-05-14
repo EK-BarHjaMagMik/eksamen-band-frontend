@@ -18,13 +18,33 @@ export function renderContactInfo(contact) {
         section.appendChild(subtitle);
     }
 
-    if (contact.email) {
-        const emailLink = document.createElement('a');
-        emailLink.className = 'contact-email-link';
-        emailLink.href = `mailto:${contact.email}`;
-        emailLink.textContent = contact.email;
-        section.appendChild(emailLink);
+    const list = document.createElement('dl');
+    list.className = 'contact-list';
+
+    if (contact.bookingEmail) {
+        const dt = document.createElement('dt');
+        dt.textContent = 'Management';
+        const dd = document.createElement('dd');
+        const link = document.createElement('a');
+        link.href = `mailto:${contact.bookingEmail}`;
+        link.textContent = contact.bookingEmail;
+        dd.appendChild(link);
+        list.appendChild(dt);
+        list.appendChild(dd);
     }
 
+    if (contact.email) {
+        const dt = document.createElement('dt');
+        dt.textContent = 'Band';
+        const dd = document.createElement('dd');
+        const link = document.createElement('a');
+        link.href = `mailto:${contact.email}`;
+        link.textContent = contact.email;
+        dd.appendChild(link);
+        list.appendChild(dt);
+        list.appendChild(dd);
+    }
+
+    section.appendChild(list);
     return section;
 }

@@ -430,6 +430,8 @@ textarea {
 ---------------------------------------- */
 
 .home-contact {
+    max-width: 900px;
+    margin: 0 auto;
     padding: var(--space-xl) var(--space-md);
     text-align: center;
 }
@@ -446,16 +448,30 @@ textarea {
     margin-bottom: var(--space-md);
 }
 
-.contact-email-link {
-    display: block;
+.contact-list {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: var(--space-sm) var(--space-md);
+    max-width: 480px;
+    margin: 0 auto var(--space-xl);
+    text-align: left;
+}
+
+.contact-list dt {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+    padding-top: 2px;
+}
+
+.contact-list a {
     color: var(--color-text-primary);
     text-decoration: none;
-    font-size: 1.1rem;
-    margin-bottom: var(--space-xl);
     transition: var(--transition-color);
 }
 
-.contact-email-link:hover {
+.contact-list a:hover {
     color: var(--color-text-secondary);
 }
 
