@@ -10,7 +10,8 @@ const routes = {
 // Paths that live as sections on the home page rather than separate routes.
 const anchorRoutes = {
     '/tour': 'tour',
-    '/contact': 'contact'
+    '/contact': 'contact',
+    '/photos': 'photos'
 };
 
 async function renderPage(path, params) {

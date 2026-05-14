@@ -10,3 +10,8 @@ export function getPhotos(showId = null) {
 
     return fetchJson(url);
 }
+
+export function getRecentPhotos(limit = 6) {
+    const url = `/api/photos/recent?limit=${encodeURIComponent(limit)}`;
+    return fetchJson(url);
+}
