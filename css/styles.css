@@ -357,29 +357,41 @@ textarea {
 
 .toggle-section {
     max-width: 900px;
-    margin: 0 auto;
     display: flex;
-    justify-content: right;
-    padding: var(--space-md) var(--space-md) 0 var(--space-md);
+    justify-content: center;
+    margin-bottom: var(--space-lg);
 }
 
-
 .toggle-btn {
-    display: inline-block;
-    padding: var(--space-xs) var(--space-md);
-    background: var(--color-accent);
-    color: var(--color-accent-foreground);
-    border-radius: var(--radius-sm);
+    display: block;
+    margin: 0 var(--space-sm);
+    padding: 0.75rem 2rem;
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
     font-weight: var(--font-weight-medium);
-    transition: var(--transition-color);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Active and focus states for the shows toggle buttons */
+.toggle-btn.active {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-page);
+}
+
+.toggle-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 /* ---------------------------------------
-    UPCOMING SHOWS SECTION
+    SHOWS SECTION
 ---------------------------------------- */
 
-.upcoming-shows {
+.shows-section {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 var(--space-md) var(--space-md) var(--space-md);
@@ -458,50 +470,6 @@ textarea {
 
 .hidden {display: none;}
 
-.past-shows {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: var(--space-md);
-}
-
-.past-shows h2 {
-    font-size: 1.75rem;
-    margin-bottom: var(--space-lg);
-}
-
-.past-shows-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-}
-
-.past-show-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-sm);
-    padding: var(--space-md);
-    background: var(--color-bg-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-}
-
-@media (min-width: 600px) {
-    .past-show-row {
-        grid-template-columns: 1fr 1fr 2fr 120px;
-        align-items: center;
-    }
-}
-
-.past-show-date {
-    color: var(--color-text-secondary);
-    font-size: 0.9rem;
-}
-
-.past-show-city,
-.past-show-venue {
-    color: var(--color-text-primary);
-}
-
 .photos-btn {
     display: inline-block;
     padding: var(--space-xs) var(--space-md);
@@ -520,11 +488,6 @@ textarea {
 
 .no-photos {
     color: var(--color-text-muted);
-}
-
-.no-past-shows {
-    color: var(--color-text-secondary);
-    padding: var(--space-md) 0;
 }
 
 /* ---------------------------------------

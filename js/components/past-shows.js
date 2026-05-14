@@ -1,39 +1,31 @@
 export function renderPastShows(shows) {
   const safeShows = Array.isArray(shows) ? shows : [];
 
-  const section = document.createElement('section');
-  section.className = 'past-shows';
-
-  const heading = document.createElement('h2');
-  heading.textContent = 'Past Shows';
-  section.appendChild(heading);
-
   const list = document.createElement('div');
-  list.className = 'past-shows-list';
-  section.appendChild(list);
+  list.className = 'shows-list';
 
   if (safeShows.length === 0) {
     const empty = document.createElement('p');
-    empty.className = 'no-past-shows';
+    empty.className = 'no-shows';
     empty.textContent = 'No past gigs registered at the moment. Check back soon!';
     list.appendChild(empty);
-    return section;
+    return list;
   }
 
   safeShows.forEach(show => {
     const row = document.createElement('div');
-    row.className = 'past-show-row';
+    row.className = 'show-row';
 
     const date = document.createElement('span');
-    date.className = 'past-show-date';
+    date.className = 'show-date';
     date.textContent = show.date;
 
     const city = document.createElement('span');
-    city.className = 'past-show-city';
+    city.className = 'show-city';
     city.textContent = show.city;
 
     const venue = document.createElement('span');
-    venue.className = 'past-show-venue';
+    venue.className = 'show-venue';
     venue.textContent = show.venue;
 
     row.appendChild(date);
@@ -43,5 +35,5 @@ export function renderPastShows(shows) {
     list.appendChild(row);
   });
 
-  return section;
+  return list;
 }

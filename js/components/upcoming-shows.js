@@ -1,24 +1,15 @@
 export function renderUpcomingShows(shows) {
     const safeShows = Array.isArray(shows) ? shows : [];
 
-    const section = document.createElement('section');
-    section.className = 'upcoming-shows';
-
-    const heading = document.createElement('h2');
-    heading.className = 'section-heading';
-    heading.textContent = 'Upcoming Shows';
-    section.appendChild(heading);
-
     const list = document.createElement('div');
     list.className = 'shows-list';
-    section.appendChild(list);
 
     if (safeShows.length === 0) {
         const empty = document.createElement('p');
         empty.className = 'no-shows';
         empty.textContent = 'No upcoming gigs at the moment. Check back soon!';
         list.appendChild(empty);
-        return section;
+        return list;
     }
 
     safeShows.forEach(show => {
@@ -56,5 +47,5 @@ export function renderUpcomingShows(shows) {
         list.appendChild(row);
     });
 
-    return section;
+    return list;
 }
