@@ -515,6 +515,26 @@ textarea {
 }
 
 /* ---------------------------------------
+    ABOUT PAGE
+---------------------------------------- */
+
+.band-bio {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: var(--space-lg) var(--space-md) var(--space-xl);
+}
+
+.band-bio p {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+}
+
+.band-bio p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------------------------------------
     PHOTO GRID
 ---------------------------------------- */
 

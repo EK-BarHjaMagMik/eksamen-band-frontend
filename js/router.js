@@ -4,6 +4,7 @@ import { renderFooter } from "./components/footer.js";
 const routes = {
     '/': { module: './pages/home.js' },
     '/photos': { module: './pages/photos.js' },
+    '/about': { module: './pages/about.js' },
 };
 
 // Paths that live as sections on the home page rather than separate routes.
