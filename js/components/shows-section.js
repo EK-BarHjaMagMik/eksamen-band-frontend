@@ -40,7 +40,7 @@ export function renderShowsSection(upcomingShows, pastShows) {
         btnPast.setAttribute('aria-pressed', 'false');
     });
 
-    // Clicking 'Past Shows!' shows past and hides upcoming
+    // Clicking 'Past Shows' shows past and hides upcoming
     btnPast.addEventListener('click', () => {
         upcomingSection.classList.add('hidden');
         pastShowsSection.classList.remove('hidden');
