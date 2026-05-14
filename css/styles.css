@@ -357,22 +357,34 @@ textarea {
 
 .toggle-section {
     max-width: 900px;
-    margin: 0 auto;
     display: flex;
     justify-content: center;
-    padding: var(--space-md);
+    margin-bottom: var(--space-lg);
 }
 
-
 .toggle-btn {
-    display: inline-block;
-    padding: var(--space-xs) var(--space-md);
-    background: var(--color-accent);
-    color: var(--color-accent-foreground);
-    border-radius: var(--radius-sm);
+    display: block;
+    margin: 0 var(--space-sm);
+    padding: 0.75rem 2rem;
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
     font-weight: var(--font-weight-medium);
-    transition: var(--transition-color);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Active and focus states for the shows toggle buttons */
+.toggle-btn.active {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-page);
+}
+
+.toggle-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 /* ---------------------------------------

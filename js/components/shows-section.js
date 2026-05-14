@@ -7,31 +7,51 @@ export function renderShowsSection(upcomingShows, pastShows) {
 
     const heading = document.createElement('h2');
     heading.className = 'section-heading';
-    heading.textContent = 'Shows';
+    heading.textContent = 'Tour Dates';
     section.appendChild(heading);
 
     const toggleSection = document.createElement('div');
     toggleSection.className = 'toggle-section';
 
-    const toggleBtn = document.createElement('button');
-    toggleBtn.type = 'button';
-    toggleBtn.className = 'toggle-btn';
-    toggleBtn.textContent = 'See Past Shows';
+    const btnUpcoming = document.createElement('button');
+    btnUpcoming.type = 'button';
+    btnUpcoming.className = 'toggle-btn toggle-upcoming active';
+    btnUpcoming.textContent = 'Upcoming';
+    btnUpcoming.setAttribute('aria-pressed', 'true');
+
+    const btnPast = document.createElement('button');
+    btnPast.type = 'button';
+    btnPast.className = 'toggle-btn toggle-past';
+    btnPast.textContent = 'Past Shows';
+    btnPast.setAttribute('aria-pressed', 'false');
 
     const upcomingSection = renderUpcomingShows(upcomingShows);
 
     const pastShowsSection = renderPastShows(pastShows);
     pastShowsSection.classList.add('hidden');
 
-    toggleBtn.addEventListener('click', () => {
-        const showingUpcoming = !upcomingSection.classList.contains('hidden');
-
-        upcomingSection.classList.toggle('hidden');
-        pastShowsSection.classList.toggle('hidden');
-        toggleBtn.textContent = showingUpcoming ? 'See Upcoming Shows' : 'See Past Shows';
+    // Clicking 'Upcoming' shows upcoming and hides past
+    btnUpcoming.addEventListener('click', () => {
+        upcomingSection.classList.remove('hidden');
+        pastShowsSection.classList.add('hidden');
+        btnUpcoming.classList.add('active');
+        btnPast.classList.remove('active');
+        btnUpcoming.setAttribute('aria-pressed', 'true');
+        btnPast.setAttribute('aria-pressed', 'false');
     });
 
-    toggleSection.appendChild(toggleBtn);
+    // Clicking 'Past Shows!' shows past and hides upcoming
+    btnPast.addEventListener('click', () => {
+        upcomingSection.classList.add('hidden');
+        pastShowsSection.classList.remove('hidden');
+        btnPast.classList.add('active');
+        btnUpcoming.classList.remove('active');
+        btnPast.setAttribute('aria-pressed', 'true');
+        btnUpcoming.setAttribute('aria-pressed', 'false');
+    });
+
+    toggleSection.appendChild(btnUpcoming);
+    toggleSection.appendChild(btnPast);
     section.appendChild(toggleSection);
     section.appendChild(upcomingSection);
     section.appendChild(pastShowsSection);
