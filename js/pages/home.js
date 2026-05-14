@@ -5,6 +5,15 @@ import { getUpcomingShows } from "../services/show-service.js";
 import { getContactInfo } from "../services/contact-service.js";
 import { getRecentPhotos } from "../services/photo-service.js";
 import { renderPhotoSection } from '../components/photos.js';
+import { createLightbox, openLightbox } from '../components/lightbox.js';
+
+// Create the lightbox once when the module loads
+createLightbox();
+
+// Register once at module scope — not inside render() — to avoid accumulating listeners.
+document.addEventListener('open-lightbox', e => {
+    openLightbox(e.detail.photos, e.detail.index);
+});
 
 export async function render(container, params) {
     container.appendChild(renderHero());
