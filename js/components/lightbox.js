@@ -2,6 +2,33 @@ import { BASE_URL } from '../api.js';
 
 let currentIndex = 0;
 let photos = [];
+let previouslyFocusedElement = null;
+
+function trapFocus(overlay) {
+    const focusableElements = overlay.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    overlay.addEventListener('keydown', e => {
+        if (e.key !== 'Tab') return;
+
+        if (e.shiftKey) {
+            // Shift + Tab: moving backwards
+            if (document.activeElement === firstElement) {
+                lastElement.focus();
+                e.preventDefault();
+            }
+        } else {
+            // Tab: moving forwards
+            if (document.activeElement === lastElement) {
+                firstElement.focus();
+                e.preventDefault();
+            }
+        }
+    });
+}
 
 export function createLightbox() {
     const overlay = document.createElement('div');
@@ -28,8 +55,8 @@ export function createLightbox() {
                 </svg>
             </button>
 
-             <button class="lightbox-prev" aria-label="Previous photo" title="Previous photo">‹</button>
-             <button class="lightbox-next" aria-label="Next photo" title="Next photo">›</button>
+            <button class="lightbox-prev" aria-label="Previous photo" title="Previous photo">‹</button>
+            <button class="lightbox-next" aria-label="Next photo" title="Next photo">›</button>
         </div>
     `;
 
@@ -77,7 +104,15 @@ export function openLightbox(photoList, index) {
     currentIndex = index;
 
     const overlay = document.querySelector('.lightbox-overlay');
+    
+    // Store the element that opened the lightbox (for restoring focus later)
+    previouslyFocusedElement = document.activeElement;
+    
     overlay.classList.add('active');
+    trapFocus(overlay);
+    
+    // Move focus to the close button (first focusable element)
+    overlay.querySelector('.lightbox-close').focus();
 
     // Show the selected image immediately when the lightbox opens.
     showImage(index);
@@ -85,6 +120,11 @@ export function openLightbox(photoList, index) {
 
 function closeLightbox() {
     document.querySelector('.lightbox-overlay').classList.remove('active');
+    
+    // Restore focus to the element that opened the lightbox
+    if (previouslyFocusedElement) {
+        previouslyFocusedElement.focus();
+    }
 }
 
 function showImage(index) {
@@ -127,7 +167,7 @@ function showImage(index) {
 // Enable keyboard shortcuts for lightbox navigation when it is open.
 document.addEventListener('keydown', e => {
     const overlay = document.querySelector('.lightbox-overlay');
-    if (!overlay || !overlay.classList.contains('active')) return;
+    if (!overlay?.classList.contains('active')) return;
 
     // Arrow keys navigate, Escape closes.
     if (e.key === 'ArrowRight') showImage(currentIndex + 1);
