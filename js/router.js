@@ -2,7 +2,8 @@ import { renderHeader } from "./components/header.js";
 import { renderFooter } from "./components/footer.js";
 
 const routes = {
-    '/': { module: './pages/home.js' }
+    '/': { module: './pages/home.js' },
+    '/photos': { module: './pages/photos.js' },
 };
 
 // Paths that live as sections on the home page rather than separate routes.

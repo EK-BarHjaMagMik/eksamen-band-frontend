@@ -5,7 +5,6 @@ export function renderFooter() {
     const year = new Date().getFullYear();
     footer.innerHTML = `
     <div class="footer-container">
-        <a href="mailto:stuggofficial@gmail.com" class="footer-email">stuggofficial@gmail.com</a>
         <div class="footer-socials">
             <a href="https://www.facebook.com/STUGGofficial/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="https://www.instagram.com/stuggofficial/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>

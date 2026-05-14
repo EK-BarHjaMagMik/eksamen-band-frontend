@@ -3,7 +3,7 @@ const isLocalhost =
     globalThis.location.hostname === "127.0.0.1";
 
 // Use the local backend during development and a relative base in production.
-const BASE_URL = isLocalhost ? "http://localhost:8080" : "";
+export const BASE_URL = isLocalhost ? "http://localhost:8080" : "";
 
 async function request(endpoint, options = {}, useAuth = false) {
     // Build the final URL and headers before making the fetch call.
