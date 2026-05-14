@@ -438,40 +438,58 @@ textarea {
 
 .contact-heading {
     font-size: 3rem;
+    font-weight: var(--font-weight-medium);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     margin-bottom: var(--space-lg);
 }
 
-.contact-subtitle {
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-md);
-}
 
-.contact-list {
+.contact-columns {
     display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: var(--space-sm) var(--space-md);
-    max-width: 480px;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    max-width: 680px;
     margin: 0 auto var(--space-xl);
-    text-align: left;
 }
 
-.contact-list dt {
-    color: var(--color-text-secondary);
-    font-size: 0.9rem;
+@media (max-width: 520px) {
+    .contact-columns {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+}
+
+.contact-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-col-label {
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-normal);
     text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wide);
-    padding-top: 2px;
+    letter-spacing: 0.18em;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.25rem;
 }
 
-.contact-list a {
+.contact-col-desc {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.contact-col-email {
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-medium);
     color: var(--color-text-primary);
     text-decoration: none;
     transition: var(--transition-color);
 }
 
-.contact-list a:hover {
+.contact-col-email:hover {
     color: var(--color-text-secondary);
 }
 
