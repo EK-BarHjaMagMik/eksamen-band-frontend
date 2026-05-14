@@ -46,7 +46,9 @@ export async function render(container, params) {
         header.textContent = 'Photos';
         container.appendChild(header);
 
-        container.appendChild(renderPhotoGrid(photoState));
+        const grid = renderPhotoGrid(photoState);
+        grid.classList.add('photos-page');
+        container.appendChild(grid);
 
     } catch (err) {
         // Keep the loading placeholder in place and turn it into an error message.

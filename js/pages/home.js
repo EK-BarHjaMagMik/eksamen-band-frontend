@@ -29,10 +29,11 @@ export async function render(container, params) {
     container.appendChild(showsSection);
 
     // TODO: EKS-XX news section (2×2 card grid with headline, image, date, excerpt)
-    // TODO: EKS-XX photos section (3×2 grid + "view all photos" button)
     const photoSection = renderPhotoSection(photos);
-    photoSection.id = 'photos';
-    container.appendChild(photoSection);
+    if (photoSection) {
+        photoSection.id = 'photos';
+        container.appendChild(photoSection);
+    }
 
     const contactSection = renderContactInfo(contact);
     contactSection.id = 'contact';

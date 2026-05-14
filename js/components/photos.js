@@ -12,10 +12,17 @@ export function renderPhotoSection(photos) {
     section.className = 'photos';
 
     const heading = document.createElement('h2');
+    heading.className = 'section-heading';
     heading.textContent = 'Photos';
     section.appendChild(heading);
 
     section.appendChild(renderPhotoGrid(safePhotos));
+
+    const viewAll = document.createElement('a');
+    viewAll.href = '#/photos';
+    viewAll.className = 'view-all-btn';
+    viewAll.textContent = 'View All Photos';
+    section.appendChild(viewAll);
 
     return section;
 }

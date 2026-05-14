@@ -3,28 +3,46 @@ export function renderContactInfo(contact) {
     section.className = 'home-contact';
 
     const heading = document.createElement('h2');
-    heading.className = 'contact-heading';
+    heading.className = 'section-heading';
     heading.textContent = 'Contact';
     section.appendChild(heading);
 
-    if (!contact) {
-        return section;
-    }
+    if (!contact) return section;
 
-    if (contact.bookingNote) {
-        const subtitle = document.createElement('p');
-        subtitle.className = 'contact-subtitle';
-        subtitle.textContent = contact.bookingNote;
-        section.appendChild(subtitle);
-    }
+    const columns = document.createElement('div');
+    columns.className = 'contact-columns';
 
     if (contact.email) {
-        const emailLink = document.createElement('a');
-        emailLink.className = 'contact-email-link';
-        emailLink.href = `mailto:${contact.email}`;
-        emailLink.textContent = contact.email;
-        section.appendChild(emailLink);
+        columns.appendChild(buildContactCol('General Inquiries', contact.emailNote, contact.email));
     }
 
+    if (contact.bookingEmail) {
+        columns.appendChild(buildContactCol('Booking & Press', contact.bookingNote, contact.bookingEmail));
+    }
+
+    section.appendChild(columns);
     return section;
+}
+
+function buildContactCol(label, description, email) {
+    const col = document.createElement('div');
+    col.className = 'contact-col';
+
+    const labelEl = document.createElement('span');
+    labelEl.className = 'contact-col-label';
+    labelEl.textContent = label;
+    col.appendChild(labelEl);
+
+    const desc = document.createElement('p');
+    desc.className = 'contact-col-desc';
+    desc.textContent = description ?? '';
+    col.appendChild(desc);
+
+    const link = document.createElement('a');
+    link.className = 'contact-col-email';
+    link.href = `mailto:${email}`;
+    link.textContent = email;
+    col.appendChild(link);
+
+    return col;
 }
