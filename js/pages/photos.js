@@ -52,10 +52,10 @@ export async function render(container, params) {
             const filterBar = document.createElement('div');
             filterBar.className = 'filter-bar';
 
-            // Simple label using the raw showId (no lookup requested)
+            // Simple label
             const label = document.createElement('span');
             label.className = 'filter-text';
-            label.innerHTML = `Filtered by show: <strong>${showId}</strong>`;
+            label.innerHTML = `Filtered by show`;
 
             const clearBtn = document.createElement('button');
             clearBtn.type = 'button';
