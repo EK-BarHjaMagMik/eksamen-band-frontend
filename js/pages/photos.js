@@ -6,6 +6,8 @@ import { navigate } from '../router.js';
 
 let photoState = null;        // cached photos
 let currentFilter = null;     // last used showId
+let filteredShow = null;      // cached show details for active show filter
+let currentShowFilter = null; // showId for cached show details
 
 // Create the lightbox once when the module loads
 createLightbox();
@@ -53,13 +55,29 @@ export async function render(container, params) {
             const filterBar = document.createElement('div');
             filterBar.className = 'filter-bar';
 
-            // label
-            const show = await getShowById(showId);
+            const shouldFetchShow =
+                !filteredShow ||
+                currentShowFilter !== showId;
+
+            if (shouldFetchShow) {
+                filteredShow = await getShowById(showId);
+                currentShowFilter = showId;
+            }
+
+            const show = filteredShow;
             const label = document.createElement('div');
             label.className = 'filter-text';
-            label.innerHTML =
-                                `<p>Filtered by show:</p>
-                                <p><strong>${show.date} - ${show.city} @ ${show.venue}</strong></p>`;
+
+            const labelPrefix = document.createElement('p');
+            labelPrefix.textContent = 'Filtered by show:';
+
+            const labelValue = document.createElement('p');
+            const strong = document.createElement('strong');
+            strong.textContent = `${show.date} - ${show.city} @ ${show.venue}`;
+            labelValue.appendChild(strong);
+
+            label.appendChild(labelPrefix);
+            label.appendChild(labelValue);
 
             const clearBtn = document.createElement('button');
             clearBtn.type = 'button';
