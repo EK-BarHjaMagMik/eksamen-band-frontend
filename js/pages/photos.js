@@ -55,11 +55,12 @@ export async function render(container, params) {
             const filterBar = document.createElement('div');
             filterBar.className = 'filter-bar';
 
-            const shouldFetchShow =
+            // Fetch show details only when cache is empty or filter changed.
+            const isShowCacheMiss =
                 !filteredShow ||
                 currentShowFilter !== showId;
 
-            if (shouldFetchShow) {
+            if (isShowCacheMiss) {
                 filteredShow = await getShowById(showId);
                 currentShowFilter = showId;
             }
@@ -73,7 +74,9 @@ export async function render(container, params) {
 
             const labelValue = document.createElement('p');
             const strong = document.createElement('strong');
-            strong.textContent = `${show.date} - ${show.city} @ ${show.venue}`;
+            strong.textContent = show
+                ? `${show.date} - ${show.city} @ ${show.venue}`
+                : `Show #${showId}`;
             labelValue.appendChild(strong);
 
             label.appendChild(labelPrefix);
