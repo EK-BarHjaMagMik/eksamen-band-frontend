@@ -1,6 +1,6 @@
 export function renderContactInfo(contact) {
     const section = document.createElement('section');
-    section.className = 'home-contact';
+    section.classList.add('home-section', 'contact-section');
 
     const heading = document.createElement('h2');
     heading.className = 'section-heading';

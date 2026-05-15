@@ -3,7 +3,7 @@ import { renderContactInfo } from '../components/contact-info.js';
 import { getUpcomingShows, getPastShows } from "../services/show-service.js";
 import { getContactInfo } from "../services/contact-service.js";
 import { getRecentPhotos } from "../services/photo-service.js";
-import { renderPhotoSection } from '../components/photos.js';
+import { renderPhotoSection } from '../components/photos-section.js';
 import { renderShowsSection } from '../components/shows-section.js';
 import { createLightbox, openLightbox } from '../components/lightbox.js';
 
