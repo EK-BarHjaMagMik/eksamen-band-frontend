@@ -77,8 +77,11 @@ export async function render(container, params) {
             const hasShowDetails =
                 show &&
                 typeof show.date === 'string' &&
+                show.date.trim() &&
                 typeof show.city === 'string' &&
-                typeof show.venue === 'string';
+                show.city.trim() &&
+                typeof show.venue === 'string' &&
+                show.venue.trim();
             strong.textContent = hasShowDetails
                 ? `${show.date} - ${show.city} @ ${show.venue}`
                 : `Show #${showId}`;
