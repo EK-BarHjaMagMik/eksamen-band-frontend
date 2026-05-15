@@ -130,7 +130,7 @@ textarea {
 /* buttons */
 
 .btn {
-    margin: 0 var(--space-sm);
+    margin: 0;
     padding: 0.50rem 1.5rem;
     border: 1px solid var(--color-text-primary);
     color: var(--color-text-primary);
@@ -464,6 +464,7 @@ textarea {
     display: flex;
     justify-content: center;
     margin-bottom: var(--space-lg);
+    gap: var(--space-md);
 }
 
 /* ---------------------------------------
@@ -689,13 +690,18 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    padding: 0.5rem;
+    gap: var(--space-md);
+    padding: 0 var(--space-md);
 }
 
 .filter-text {
     color: var(--color-text-secondary);
     font-size: 0.95rem;
+}
+
+.filter-text p {
+    margin: 0;
+    line-height: 1.2;
 }
 
 /* ---------------------------------------

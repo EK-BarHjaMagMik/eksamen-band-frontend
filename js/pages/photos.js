@@ -1,4 +1,5 @@
 import { getPhotos } from '../services/photo-service.js';
+import { getShowById } from '../services/show-service.js';
 import { renderPhotoGrid } from '../components/photo-grid.js';
 import { createLightbox, openLightbox } from '../components/lightbox.js';
 import { navigate } from '../router.js';
@@ -52,10 +53,13 @@ export async function render(container, params) {
             const filterBar = document.createElement('div');
             filterBar.className = 'filter-bar';
 
-            // Simple label
-            const label = document.createElement('span');
+            // label
+            const show = await getShowById(showId);
+            const label = document.createElement('div');
             label.className = 'filter-text';
-            label.innerHTML = `Filtered by show`;
+            label.innerHTML =
+                                `<p>Filtered by show:</p>
+                                <p><strong>${show.date} - ${show.city} @ ${show.venue}</strong></p>`;
 
             const clearBtn = document.createElement('button');
             clearBtn.type = 'button';
@@ -67,7 +71,7 @@ export async function render(container, params) {
             filterBar.appendChild(clearBtn);
             container.appendChild(filterBar);
         }
-        
+
         const grid = renderPhotoGrid(photoState);
         container.appendChild(grid);
 

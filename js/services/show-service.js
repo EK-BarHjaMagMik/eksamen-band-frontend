@@ -7,3 +7,7 @@ export function getUpcomingShows() {
 export function getPastShows() {
   return fetchJson('/api/shows/past');
 }
+
+export function getShowById(showId) {
+  return fetchJson(`/api/shows/${showId}`);
+}
