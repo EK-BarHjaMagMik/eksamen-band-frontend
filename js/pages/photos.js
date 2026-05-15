@@ -56,11 +56,11 @@ export async function render(container, params) {
             filterBar.className = 'filter-bar';
 
             // Fetch show details only when cache is empty or filter changed.
-            const isShowCacheMiss =
+            const needsShowUpdate =
                 !filteredShow ||
                 currentShowFilter !== showId;
 
-            if (isShowCacheMiss) {
+            if (needsShowUpdate) {
                 filteredShow = await getShowById(showId);
                 currentShowFilter = showId;
             }
