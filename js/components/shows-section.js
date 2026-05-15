@@ -15,13 +15,13 @@ export function renderShowsSection(upcomingShows, pastShows) {
 
     const btnUpcoming = document.createElement('button');
     btnUpcoming.type = 'button';
-    btnUpcoming.className = 'toggle-btn toggle-upcoming active';
+    btnUpcoming.className = 'btn active';
     btnUpcoming.textContent = 'Upcoming';
     btnUpcoming.setAttribute('aria-pressed', 'true');
 
     const btnPast = document.createElement('button');
     btnPast.type = 'button';
-    btnPast.className = 'toggle-btn toggle-past';
+    btnPast.className = 'btn';
     btnPast.textContent = 'Past Shows';
     btnPast.setAttribute('aria-pressed', 'false');
 

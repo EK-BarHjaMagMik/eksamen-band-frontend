@@ -32,6 +32,16 @@ export function renderPastShows(shows) {
     row.appendChild(city);
     row.appendChild(venue);
 
+    if (show.hasPhotos) {
+      const link = document.createElement('a');
+      link.href = `#/photos?showId=${show.id}`;
+      link.textContent = 'Photos';
+      link.className = 'btn';
+      row.appendChild(link);
+    } else {
+      row.appendChild(document.createElement('span'));
+    }
+
     list.appendChild(row);
   });
 

@@ -20,7 +20,7 @@ export function renderPhotoSection(photos) {
 
     const viewAll = document.createElement('a');
     viewAll.href = '#/photos';
-    viewAll.className = 'view-all-btn';
+    viewAll.className = 'btn block';
     viewAll.textContent = 'View All Photos';
     section.appendChild(viewAll);
 

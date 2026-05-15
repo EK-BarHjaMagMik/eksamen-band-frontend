@@ -38,7 +38,7 @@ export function createLightbox() {
     overlay.innerHTML = `
         <div class="lightbox-content">
             
-            <img class="lightbox-image" alt="" />
+            <img class="lightbox-image" alt="" loading="lazy"/>
             <div class="lightbox-fallback-overlay">
                 <svg viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2"
