@@ -67,18 +67,10 @@ export async function render(container, params) {
             filterBar.appendChild(clearBtn);
             container.appendChild(filterBar);
         }
-
-        if(photoState.length === 0) {
-            const empty = document.createElement('p');
-            empty.className = 'no-photos';
-            empty.textContent = 'No photos available.';
-            container.appendChild(empty);
-        } else {
-            const grid = renderPhotoGrid(photoState);
-            grid.classList.add('photos-page');
-            container.appendChild(grid);
-        }
         
+        const grid = renderPhotoGrid(photoState);
+        container.appendChild(grid);
+
     } catch (err) {
         // Keep the loading placeholder in place and turn it into an error message.
         if (loading) {

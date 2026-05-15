@@ -4,6 +4,13 @@ import { BASE_URL } from '../api.js';
 export function renderPhotoGrid(photos) {
     const safePhotos = Array.isArray(photos) ? photos : [];
 
+    if (safePhotos.length === 0) {
+        const empty = document.createElement('p');
+        empty.className = 'no-photos';
+        empty.textContent = 'No photos available.';
+        return empty; // Return the empty message element to indicate no grid will be rendered
+    }
+
     const grid = document.createElement('div');
     grid.classList.add('photo-grid');
 
