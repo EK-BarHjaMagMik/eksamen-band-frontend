@@ -445,57 +445,14 @@ textarea {
     color: var(--color-text-primary);
 }
 
-.tickets-btn {
-    display: inline-block;
-    padding: var(--space-xs) var(--space-md);
-    background: var(--color-accent);
-    color: var(--color-accent-foreground);
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    font-weight: var(--font-weight-medium);
-    text-align: center;
-    white-space: nowrap;
-}
-
-.tickets-btn:hover {
-    opacity: 0.85;
-}
-
-.no-tickets {
-    color: var(--color-text-muted);
-}
-
 .no-shows {
     color: var(--color-text-secondary);
     padding: var(--space-md) 0;
+    text-align: center;
 }
-
-/* ---------------------------------------
-    PAST SHOWS
----------------------------------------- */
 
 .hidden {
     display: none;
-}
-
-.photos-btn {
-    display: inline-block;
-    padding: var(--space-xs) var(--space-md);
-    background: var(--color-accent);
-    color: var(--color-accent-foreground);
-    border-radius: var(--radius-sm);
-    text-decoration: none;
-    font-weight: var(--font-weight-medium);
-    text-align: center;
-    white-space: nowrap;
-}
-
-.photos-btn:hover {
-    opacity: 0.85;
-}
-
-.no-photos {
-    color: var(--color-text-muted);
 }
 
 /* ---------------------------------------
