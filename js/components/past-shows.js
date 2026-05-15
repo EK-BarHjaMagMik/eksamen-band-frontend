@@ -37,8 +37,6 @@ export function renderPastShows(shows) {
       link.href = `#/photos?showId=${show.id}`;
       link.textContent = 'Photos';
       link.className = 'btn';
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
       row.appendChild(link);
     } else {
       row.appendChild(document.createElement('span'));
