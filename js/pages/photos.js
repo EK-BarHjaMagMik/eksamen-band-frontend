@@ -9,6 +9,10 @@ let currentFilter = null;     // last used showId
 let filteredShow = null;      // cached show details for active show filter
 let currentShowFilter = null; // showId for cached show details
 
+function isNonEmptyString(value) {
+    return typeof value === 'string' && value.trim().length > 0;
+}
+
 // Create the lightbox once when the module loads
 createLightbox();
 
@@ -61,7 +65,12 @@ export async function render(container, params) {
                 currentShowFilter !== showId;
 
             if (needsShowUpdate) {
-                filteredShow = await getShowById(showId);
+                try {
+                    filteredShow = await getShowById(showId);
+                } catch (error) {
+                    filteredShow = null;
+                    console.error('Failed to load show details for filter.', error);
+                }
                 currentShowFilter = showId;
             }
 
@@ -76,12 +85,9 @@ export async function render(container, params) {
             const strong = document.createElement('strong');
             const hasShowDetails =
                 show &&
-                typeof show.date === 'string' &&
-                show.date.trim() &&
-                typeof show.city === 'string' &&
-                show.city.trim() &&
-                typeof show.venue === 'string' &&
-                show.venue.trim();
+                isNonEmptyString(show.date) &&
+                isNonEmptyString(show.city) &&
+                isNonEmptyString(show.venue);
             strong.textContent = hasShowDetails
                 ? `${show.date} - ${show.city} @ ${show.venue}`
                 : `Show #${showId}`;
