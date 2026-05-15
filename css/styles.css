@@ -491,7 +491,7 @@ textarea {
     color: var(--color-bg-page);
 }
 
-.toggle-btn:focus {
+.toggle-btn:focus-visible {
     outline: none;
     box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.12);
 }
@@ -795,7 +795,6 @@ textarea {
 
     color: var(--color-text-primary);
     font-size: 1.25rem;
-
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
     transition: background 0.2s ease, transform 0.2s ease;
     border: 2px solid var(--color-accent);
