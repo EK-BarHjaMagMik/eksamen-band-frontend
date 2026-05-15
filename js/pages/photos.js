@@ -67,11 +67,11 @@ export async function render(container, params) {
             if (needsShowUpdate) {
                 try {
                     filteredShow = await getShowById(showId);
+                    currentShowFilter = showId;
                 } catch (error) {
                     filteredShow = null;
                     console.error('Failed to load show details for filter.', error);
                 }
-                currentShowFilter = showId;
             }
 
             const show = filteredShow;
@@ -88,9 +88,11 @@ export async function render(container, params) {
                 isNonEmptyString(show.date) &&
                 isNonEmptyString(show.city) &&
                 isNonEmptyString(show.venue);
-            strong.textContent = hasShowDetails
-                ? `${show.date} - ${show.city} @ ${show.venue}`
-                : `Show #${showId}`;
+            strong.textContent = !show
+                ? 'Show details unavailable'
+                : hasShowDetails
+                    ? `${show.date} - ${show.city} @ ${show.venue}`
+                    : `Show #${showId}`;
             labelValue.appendChild(strong);
 
             label.appendChild(labelPrefix);
