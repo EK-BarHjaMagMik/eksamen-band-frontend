@@ -3,8 +3,8 @@ import { renderPastShows } from './past-shows.js';
 
 export function renderShowsSection(upcomingShows, pastShows) {
     const section = document.createElement('section');
-    section.className = 'shows-section';
-
+    section.classList.add('home-section', 'shows-section');
+    
     const heading = document.createElement('h2');
     heading.className = 'section-heading';
     heading.textContent = 'Tour Dates';

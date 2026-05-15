@@ -352,49 +352,13 @@ textarea {
 }
 
 /* ---------------------------------------
-    TOGGLE SHOWS SECTION
+    HOME SECTIONS
 ---------------------------------------- */
 
-.toggle-section {
+.home-section {
     max-width: 900px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--space-lg);
-}
-
-.toggle-btn {
-    display: block;
-    margin: 0 var(--space-sm);
-    padding: 0.75rem 2rem;
-    border: 1px solid var(--color-text-primary);
-    color: var(--color-text-primary);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.85rem;
-    font-weight: var(--font-weight-medium);
-    transition: background-color 0.2s, color 0.2s;
-}
-
-/* Active and focus states for the shows toggle buttons */
-.toggle-btn.active {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg-page);
-}
-
-.toggle-btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.12);
-}
-
-/* ---------------------------------------
-    SHOWS SECTION
----------------------------------------- */
-
-.shows-section {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 var(--space-md) var(--space-md) var(--space-md);
+    margin: var(--space-xl) auto;
+    padding: 0 var(--space-md);
 }
 
 .section-heading {
@@ -405,6 +369,10 @@ textarea {
     text-align: center;
     margin-bottom: var(--space-lg);
 }
+
+/* ---------------------------------------
+    SHOWS SECTION
+---------------------------------------- */
 
 .shows-list {
     display: flex;
@@ -465,10 +433,12 @@ textarea {
 }
 
 /* ---------------------------------------
-    PAST SHOWS SECTION
+    PAST SHOWS
 ---------------------------------------- */
 
-.hidden {display: none;}
+.hidden {
+    display: none;
+}
 
 .photos-btn {
     display: inline-block;
@@ -491,17 +461,52 @@ textarea {
 }
 
 /* ---------------------------------------
-    CONTACT SECTION (home page)
+    TOGGLE SHOWS SECTION
 ---------------------------------------- */
 
-.home-contact {
+.toggle-section {
     max-width: 900px;
-    margin: 0 auto;
-    padding: var(--space-xl) var(--space-md);
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
 }
 
+.toggle-btn {
+    display: block;
+    margin: 0 var(--space-sm);
+    padding: 0.75rem 2rem;
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    font-weight: var(--font-weight-medium);
+    transition: background-color 0.2s, color 0.2s;
+}
 
+/* Active and focus states for the shows toggle buttons */
+.toggle-btn.active {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-page);
+}
+
+.toggle-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------------------------------------
+    PHOTOS SECTION (home page)
+---------------------------------------- */
+
+.home-section.photos-section {
+    max-width: 100%;
+}
+
+/* ---------------------------------------
+    CONTACT SECTION (home page)
+---------------------------------------- */
 
 .contact-columns {
     display: grid;
@@ -522,6 +527,7 @@ textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .contact-col-label {
@@ -600,9 +606,9 @@ textarea {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-md);
-    padding: var(--space-lg) var(--space-md);
+    padding: 0 var(--space-md);
     max-width: 80rem;
-    margin: 0 auto;
+    margin: var(--space-lg) auto;
 }
 
 .view-all-btn {
@@ -689,20 +695,23 @@ textarea {
 .photo-skeleton {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        90deg,
-        rgba(255,255,255,0.05) 0%,
-        rgba(255,255,255,0.10) 50%,
-        rgba(255,255,255,0.05) 100%
-    );
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0.05) 0%,
+            rgba(255, 255, 255, 0.10) 50%,
+            rgba(255, 255, 255, 0.05) 100%);
     background-size: 200% 100%;
     animation: skeleton-shimmer 1.5s infinite;
     border-radius: var(--radius-md);
 }
 
 @keyframes skeleton-shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 .photo-fallback {
@@ -730,8 +739,9 @@ textarea {
 .lightbox-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.85);
-    display: none; /* hidden by default */
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    /* hidden by default */
     justify-content: center;
     align-items: center;
     z-index: 9999;
@@ -755,7 +765,7 @@ textarea {
     height: auto;
     max-height: 90vh;
     object-fit: contain;
-    box-shadow: 0 0 40px rgba(255,255,255,0.2);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
     transition: opacity 0.3s ease;
     opacity: 0;
 }
@@ -769,7 +779,8 @@ textarea {
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(50%, -50%); /* centers the circle on the corner */
+    transform: translate(50%, -50%);
+    /* centers the circle on the corner */
 
     width: 2.25rem;
     height: 2.25rem;
@@ -784,8 +795,7 @@ textarea {
 
     color: var(--color-text-primary);
     font-size: 1.25rem;
-
-    box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
     transition: background 0.2s ease, transform 0.2s ease;
     border: 2px solid var(--color-accent);
 }
@@ -798,7 +808,8 @@ textarea {
 .lightbox-fallback-overlay {
     position: absolute;
     inset: 0;
-    display: none; /* hidden by default */
+    display: none;
+    /* hidden by default */
     align-items: center;
     justify-content: center;
 
@@ -829,12 +840,19 @@ textarea {
     padding: 0 1rem;
 }
 
-.lightbox-prev { left: -3rem; }
-.lightbox-next { right: -3rem; }
+.lightbox-prev {
+    left: -3rem;
+}
+
+.lightbox-next {
+    right: -3rem;
+}
 
 @media (max-width: 768px) {
+
     .lightbox-prev,
     .lightbox-next {
-        display: none; /* swipe handles mobile */
+        display: none;
+        /* swipe handles mobile */
     }
 }

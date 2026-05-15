@@ -9,7 +9,7 @@ export function renderPhotoSection(photos) {
     }
 
     const section = document.createElement('section');
-    section.className = 'photos';
+    section.classList.add('home-section', 'photos-section');
 
     const heading = document.createElement('h2');
     heading.className = 'section-heading';
