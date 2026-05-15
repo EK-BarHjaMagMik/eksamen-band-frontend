@@ -677,6 +677,12 @@ textarea {
     opacity: 0.6;
 }
 
+.no-photos {
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: var(--space-lg) 0;
+}
+
 /* Filter bar shown on the photos page when a show filter is active */
 .filter-bar {
     margin: 0.5rem auto;
