@@ -127,6 +127,43 @@ textarea {
     border-radius: var(--radius-sm);
 }
 
+/* buttons */
+
+.btn {
+    margin: 0 var(--space-sm);
+    padding: 0.75rem 2rem;
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    font-weight: var(--font-weight-medium);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-page);
+}
+
+/* Active and focus states for the shows toggle buttons */
+.btn.active {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-page);
+}
+
+.btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.btn.block {
+    display: block;
+    width: fit-content;
+    justify-self: center;
+}
 
 /* ---------------------------------------
     HEADER
@@ -471,31 +508,6 @@ textarea {
     margin-bottom: var(--space-lg);
 }
 
-.toggle-btn {
-    display: block;
-    margin: 0 var(--space-sm);
-    padding: 0.75rem 2rem;
-    border: 1px solid var(--color-text-primary);
-    color: var(--color-text-primary);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.85rem;
-    font-weight: var(--font-weight-medium);
-    transition: background-color 0.2s, color 0.2s;
-}
-
-/* Active and focus states for the shows toggle buttons */
-.toggle-btn.active {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg-page);
-}
-
-.toggle-btn:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.12);
-}
-
 /* ---------------------------------------
     PHOTOS SECTION (home page)
 ---------------------------------------- */
@@ -609,26 +621,6 @@ textarea {
     padding: 0 var(--space-md);
     max-width: 80rem;
     margin: var(--space-lg) auto;
-}
-
-.view-all-btn {
-    display: block;
-    width: fit-content;
-    margin: var(--space-lg) auto 0;
-    padding: 0.75rem 2rem;
-    border: 1px solid var(--color-text-primary);
-    color: var(--color-text-primary);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.85rem;
-    font-weight: var(--font-weight-medium);
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.view-all-btn:hover {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg-page);
 }
 
 /* Only the standalone photos page needs full viewport height */
@@ -779,8 +771,8 @@ textarea {
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(50%, -50%);
     /* centers the circle on the corner */
+    transform: translate(50%, -50%);
 
     width: 2.25rem;
     height: 2.25rem;
