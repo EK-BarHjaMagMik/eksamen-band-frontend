@@ -36,7 +36,7 @@ export function renderPastShows(shows) {
       const link = document.createElement('a');
       link.href = `#/photos?showId=${show.id}`;
       link.textContent = 'Photos';
-      link.className = 'tickets-btn';
+      link.className = 'btn';
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
       row.appendChild(link);
