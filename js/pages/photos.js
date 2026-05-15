@@ -1,6 +1,7 @@
 import { getPhotos } from '../services/photo-service.js';
 import { renderPhotoGrid } from '../components/photo-grid.js';
 import { createLightbox, openLightbox } from '../components/lightbox.js';
+import { navigate } from '../router.js';
 
 let photoState = null;        // cached photos
 let currentFilter = null;     // last used showId
@@ -45,6 +46,27 @@ export async function render(container, params) {
         header.classList.add('page-title');
         header.textContent = 'Photos';
         container.appendChild(header);
+
+        // If a show filter is active, render a small filter bar with a clear button.
+        if (showId) {
+            const filterBar = document.createElement('div');
+            filterBar.className = 'filter-bar';
+
+            // Simple label using the raw showId (no lookup requested)
+            const label = document.createElement('span');
+            label.className = 'filter-text';
+            label.innerHTML = `Filtered by show: <strong>${showId}</strong>`;
+
+            const clearBtn = document.createElement('button');
+            clearBtn.type = 'button';
+            clearBtn.className = 'btn';
+            clearBtn.textContent = 'Clear filter';
+            clearBtn.addEventListener('click', () => navigate('/photos'));
+
+            filterBar.appendChild(label);
+            filterBar.appendChild(clearBtn);
+            container.appendChild(filterBar);
+        }
 
         const grid = renderPhotoGrid(photoState);
         grid.classList.add('photos-page');

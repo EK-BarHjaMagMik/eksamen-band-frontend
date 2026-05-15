@@ -581,11 +581,6 @@ textarea {
     margin: var(--space-lg) auto;
 }
 
-/* Only the standalone photos page needs full viewport height */
-.photo-grid.photos-page {
-    min-height: 100vh;
-}
-
 /* Tablet: 2 columns */
 @media (min-width: 768px) {
     .photo-grid {
@@ -680,6 +675,21 @@ textarea {
     width: 50%;
     height: 50%;
     opacity: 0.6;
+}
+
+/* Filter bar shown on the photos page when a show filter is active */
+.filter-bar {
+    margin: 0.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.filter-text {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
 }
 
 /* ---------------------------------------
