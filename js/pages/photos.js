@@ -74,7 +74,12 @@ export async function render(container, params) {
 
             const labelValue = document.createElement('p');
             const strong = document.createElement('strong');
-            strong.textContent = show
+            const hasShowDetails =
+                show &&
+                typeof show.date === 'string' &&
+                typeof show.city === 'string' &&
+                typeof show.venue === 'string';
+            strong.textContent = hasShowDetails
                 ? `${show.date} - ${show.city} @ ${show.venue}`
                 : `Show #${showId}`;
             labelValue.appendChild(strong);
